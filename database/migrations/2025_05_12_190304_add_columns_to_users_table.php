@@ -15,10 +15,10 @@ return new class extends Migration
             $table->string('index')->unique();
 
             $table->unsignedBigInteger('semester_id')->nullable();
-            $table->foreign('semester_id')->references('id')->on('semesters');
+            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('set null');
 
             $table->unsignedBigInteger('subfaculty_id')->nullable();
-            $table->foreign('subfaculty_id')->references('id')->on('subfaculties');
+            $table->foreign('subfaculty_id')->references('id')->on('subfaculties')->onDelete('set null');
 
             $table->boolean('is_admin')->default(false);
         });
